@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;          /* #FFFFFF white page */
+    --foreground: 222 47% 11%;         /* #0F172A slate-900 text */
+    --card: 0 0% 100%;                /* #FFFFFF cards */
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 37 90% 56%;            /* #F4A62A saffron */
+    --primary-foreground: 190 53% 9%;  /* #0B2024 */
+    --secondary: 210 40% 96%;         /* #F1F5F9 light surface */
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;             /* #F1F5F9 */
+    --muted-foreground: 215 16% 47%;  /* #64748B slate-500 */
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 9 78% 60%;         /* #E8624A */
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;            /* #E2E8F0 slate-200 */
+    --input: 214 32% 91%;
+    --ring: 37 90% 56%;
+    --radius: 1rem;
+    /* custom extras */
+    --surface: 190 53% 9%;            /* #0B2024 navbar/footer */
+    --surface-foreground: 42 35% 93%; /* #F3EFE6 text for navbar/footer */
+    --success: 142 69% 36%;           /* #16A34A rating badge */
+    --offer: 9 78% 60%;               /* #E8624A offer tag */
+    --primary-hover: 36 100% 65%;     /* #FFB84D */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .container-main {
+    @apply max-w-[1200px] mx-auto px-6;
+  }
+
+  .section {
+    @apply py-12 md:py-16;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-medium font-poppins text-foreground tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-sm font-subheader text-muted-foreground mt-1 tracking-normal;
+  }
+
+  .app-card {
+    @apply overflow-hidden rounded-2xl border border-border bg-card transition duration-200 hover:-translate-y-1 hover:border-primary hover:shadow-md;
+  }
+
+  .chip {
+    @apply inline-flex items-center px-4 py-2 rounded-full border border-border bg-card text-foreground text-sm font-subheader whitespace-nowrap transition duration-200 hover:border-primary hover:bg-secondary/70 focus-visible:ring-2 ring-primary;
+  }
+
+  .chip-active {
+    @apply bg-primary text-primary-foreground border-primary hover:bg-primary-hover shadow-sm font-medium;
+  }
+
+  .badge-rating {
+    @apply bg-success text-white font-semibold;
+  }
+
+  .tag-offer {
+    @apply bg-offer text-white font-medium;
+  }
+}
