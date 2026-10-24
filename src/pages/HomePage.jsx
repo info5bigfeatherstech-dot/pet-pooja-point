@@ -1,7 +1,6 @@
 // src/pages/HomePage.jsx - Main restaurant discovery home page with FoodCategoriesSection below hero
 import React from "react"
-import Navbar from "@/components/layout/Navbar"
-import Footer from "@/components/layout/Footer"
+import PageLayout from "@/components/layout/PageLayout"
 import HeroSection from "@/components/sections/HeroSection"
 import FoodCategoriesSection from "@/components/sections/FoodCategoriesSection"
 import EntryCardsSection from "@/components/sections/EntryCardsSection"
@@ -44,12 +43,7 @@ export function HomePage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-foreground antialiased">
-      {/* 1. Navbar */}
-      <Navbar />
-
-      {/* Main Page Flow */}
-      <main className="flex-1 bg-white text-foreground">
+    <PageLayout withContainer={false}>
         {/* 2. HeroSection */}
         <HeroSection />
 
@@ -83,11 +77,7 @@ export function HomePage() {
           activeItem={currentCuisine}
           onItemClick={handleCuisineClick}
         />
-      </main>
-
-      {/* 8. Footer (dark) */}
-      <Footer />
-    </div>
+    </PageLayout>
   )
 }
 

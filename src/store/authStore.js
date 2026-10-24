@@ -1,12 +1,31 @@
+// src/store/authStore.js - Zustand auth store managing user login state with dummy user support
 import { create } from "zustand"
+import { toast } from "sonner"
+import { dummyUser } from "@/data/user"
 
 export const useAuthStore = create((set) => ({
+  isLoggedIn: true,
+  user: dummyUser,
   isAuthModalOpen: false,
-  user: null, // { phone: string }
+
   openAuthModal: () => set({ isAuthModalOpen: true }),
   closeAuthModal: () => set({ isAuthModalOpen: false }),
-  login: (phone) => set({ user: { phone }, isAuthModalOpen: false }),
-  logout: () => set({ user: null }),
+
+  login: (phone) => {
+    set({
+      isLoggedIn: true,
+      user: { ...dummyUser, phone: phone || dummyUser.phone },
+      isAuthModalOpen: false,
+    })
+    toast.success("Welcome back to Tablefy!")
+  },
+
+  logout: () => {
+    set({ isLoggedIn: false, user: null })
+    toast("Logged out successfully.", {
+      description: "You have been logged out of Tablefy.",
+    })
+  },
 }))
 
 export default useAuthStore

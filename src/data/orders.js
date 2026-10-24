@@ -1,0 +1,241 @@
+// src/data/orders.js - 8 dummy orders covering all statuses over the last 2 months conforming to Order contract
+import { dummyAddresses } from "./addresses"
+
+export const dummyOrders = [
+  {
+    id: "ord-801",
+    orderNumber: "TF-80921",
+    restaurant: {
+      id: "rest-1",
+      name: "The Imperial Spice",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
+      locality: "Connaught Place",
+    },
+    items: [
+      { id: "item-1", name: "Butter Chicken & Naan Meal", qty: 2, price: 380, isVeg: false },
+      { id: "item-2", name: "Dal Makhani Handi", qty: 1, price: 260, isVeg: true },
+      { id: "item-3", name: "Garlic Butter Naan", qty: 2, price: 65, isVeg: true },
+    ],
+    status: "placed",
+    placedAt: new Date(Date.now() - 1000 * 60 * 12).toISOString(), // 12 mins ago
+    address: dummyAddresses[0],
+    paymentMethod: "upi",
+    instructions: "Please ring bell and leave with security if unreachable.",
+    contactless: true,
+    bill: {
+      itemTotal: 1150,
+      deliveryFee: 0,
+      platformFee: 5,
+      tax: 58,
+      discount: 100,
+      tip: 30,
+      grandTotal: 1143,
+    },
+  },
+  {
+    id: "ord-802",
+    orderNumber: "TF-79450",
+    restaurant: {
+      id: "rest-3",
+      name: "Artisan Woodfired Pizza",
+      image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80",
+      locality: "Cyber Hub",
+    },
+    items: [
+      { id: "item-4", name: "Artisan Loaded Farmhouse Pizza", qty: 1, price: 389, isVeg: true },
+      { id: "item-5", name: "Garlic Bread with Cheese", qty: 1, price: 149, isVeg: true },
+    ],
+    status: "preparing",
+    placedAt: new Date(Date.now() - 1000 * 60 * 25).toISOString(), // 25 mins ago
+    address: dummyAddresses[1],
+    paymentMethod: "card",
+    instructions: "Extra oregano and chilli flakes please.",
+    contactless: false,
+    bill: {
+      itemTotal: 538,
+      deliveryFee: 0,
+      platformFee: 5,
+      tax: 27,
+      discount: 75,
+      tip: 20,
+      grandTotal: 515,
+    },
+  },
+  {
+    id: "ord-803",
+    orderNumber: "TF-78921",
+    restaurant: {
+      id: "rest-2",
+      name: "Saffron & Sage",
+      image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+      locality: "Indiranagar",
+    },
+    items: [
+      { id: "item-6", name: "Royal Hyderabadi Dum Biryani", qty: 1, price: 349, isVeg: false },
+      { id: "item-7", name: "Mirchi Ka Salan", qty: 1, price: 40, isVeg: true },
+      { id: "item-8", name: "Burani Raita", qty: 1, price: 45, isVeg: true },
+    ],
+    status: "out_for_delivery",
+    placedAt: new Date(Date.now() - 1000 * 60 * 38).toISOString(), // 38 mins ago
+    address: dummyAddresses[0],
+    paymentMethod: "upi",
+    instructions: "Call on arrival at the front gate.",
+    contactless: false,
+    bill: {
+      itemTotal: 434,
+      deliveryFee: 0,
+      platformFee: 5,
+      tax: 22,
+      discount: 50,
+      tip: 20,
+      grandTotal: 431,
+    },
+  },
+  {
+    id: "ord-804",
+    orderNumber: "TF-76120",
+    restaurant: {
+      id: "rest-4",
+      name: "Zenith Asian Bistro",
+      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
+      locality: "Bandra West",
+    },
+    items: [
+      { id: "item-9", name: "Steamed Veg Dimsums", qty: 2, price: 199, isVeg: true },
+      { id: "item-10", name: "Hakka Noodles", qty: 1, price: 189, isVeg: true },
+    ],
+    status: "delivered",
+    placedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2).toISOString(), // 2 days ago
+    address: dummyAddresses[0],
+    paymentMethod: "upi",
+    instructions: "Drop with security.",
+    contactless: true,
+    bill: {
+      itemTotal: 587,
+      deliveryFee: 0,
+      platformFee: 5,
+      tax: 29,
+      discount: 75,
+      tip: 0,
+      grandTotal: 546,
+    },
+  },
+  {
+    id: "ord-805",
+    orderNumber: "TF-74892",
+    restaurant: {
+      id: "rest-5",
+      name: "The Belgian Waffle & Bakery",
+      image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80",
+      locality: "Koramangala",
+    },
+    items: [
+      { id: "item-11", name: "Warm Belgian Molten Lava Cake", qty: 2, price: 169, isVeg: true },
+      { id: "item-12", name: "Classic Cold Coffee", qty: 2, price: 179, isVeg: true },
+    ],
+    status: "delivered",
+    placedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).toISOString(), // 7 days ago
+    address: dummyAddresses[2],
+    paymentMethod: "card",
+    instructions: "",
+    contactless: false,
+    bill: {
+      itemTotal: 696,
+      deliveryFee: 0,
+      platformFee: 5,
+      tax: 35,
+      discount: 100,
+      tip: 30,
+      grandTotal: 666,
+    },
+  },
+  {
+    id: "ord-806",
+    orderNumber: "TF-72411",
+    restaurant: {
+      id: "rest-6",
+      name: "Amritsari Kulcha Junction",
+      image: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80",
+      locality: "Sector 29, Gurugram",
+    },
+    items: [
+      { id: "item-13", name: "Amritsari Chole Bhature Special", qty: 2, price: 210, isVeg: true },
+      { id: "item-14", name: "Sweet Lassi Glass", qty: 2, price: 80, isVeg: true },
+    ],
+    status: "delivered",
+    placedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 16).toISOString(), // 16 days ago
+    address: dummyAddresses[1],
+    paymentMethod: "cod",
+    instructions: "Please bring exact change.",
+    contactless: false,
+    bill: {
+      itemTotal: 580,
+      deliveryFee: 0,
+      platformFee: 5,
+      tax: 29,
+      discount: 50,
+      tip: 0,
+      grandTotal: 564,
+    },
+  },
+  {
+    id: "ord-807",
+    orderNumber: "TF-70198",
+    restaurant: {
+      id: "rest-7",
+      name: "Coastal Spice Bay",
+      image: "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=600&q=80",
+      locality: "Juhu, Mumbai",
+    },
+    items: [
+      { id: "item-15", name: "Mysore Masala Butter Dosa", qty: 2, price: 180, isVeg: true },
+      { id: "item-16", name: "Filter Coffee", qty: 2, price: 75, isVeg: true },
+    ],
+    status: "delivered",
+    placedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 28).toISOString(), // 28 days ago
+    address: dummyAddresses[0],
+    paymentMethod: "upi",
+    instructions: "",
+    contactless: true,
+    bill: {
+      itemTotal: 510,
+      deliveryFee: 0,
+      platformFee: 5,
+      tax: 26,
+      discount: 75,
+      tip: 20,
+      grandTotal: 486,
+    },
+  },
+  {
+    id: "ord-808",
+    orderNumber: "TF-67890",
+    restaurant: {
+      id: "rest-1",
+      name: "The Imperial Spice",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
+      locality: "Connaught Place",
+    },
+    items: [
+      { id: "item-17", name: "Tandoori Chicken Platter", qty: 1, price: 420, isVeg: false },
+      { id: "item-18", name: "Roomali Roti", qty: 4, price: 30, isVeg: true },
+    ],
+    status: "cancelled",
+    placedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 40).toISOString(), // 40 days ago
+    address: dummyAddresses[0],
+    paymentMethod: "upi",
+    instructions: "",
+    contactless: false,
+    bill: {
+      itemTotal: 540,
+      deliveryFee: 0,
+      platformFee: 5,
+      tax: 27,
+      discount: 0,
+      tip: 0,
+      grandTotal: 572,
+    },
+  },
+]
+
+export default dummyOrders

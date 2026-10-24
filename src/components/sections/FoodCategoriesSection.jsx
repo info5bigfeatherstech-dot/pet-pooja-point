@@ -1,5 +1,5 @@
-// src/components/sections/FoodCategoriesSection.jsx - Circular food dish categories carousel matching delivery inspirations
 import React, { useRef } from "react"
+import { useNavigate } from "react-router-dom"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import Container from "../layout/Container"
 import { Button } from "@/components/ui/button"
@@ -8,7 +8,7 @@ import useFilterStore from "@/store/filterStore"
 
 export function FoodCategoriesSection() {
   const scrollRef = useRef(null)
-  const setCuisine = useFilterStore((state) => state.setCuisine)
+  const navigate = useNavigate()
   const currentCuisine = useFilterStore((state) => state.cuisine)
 
   const handleScroll = (direction) => {
@@ -19,16 +19,8 @@ export function FoodCategoriesSection() {
   }
 
   const handleCategoryClick = (category) => {
-    if (currentCuisine && currentCuisine.toLowerCase() === category.cuisine.toLowerCase()) {
-      setCuisine("")
-    } else {
-      setCuisine(category.cuisine)
-    }
-
-    const el = document.getElementById("restaurants-grid")
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" })
-    }
+    navigate(`/category/${category.slug || "burger"}`)
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" })
   }
 
   // Split 16 items into 2 rows of 8

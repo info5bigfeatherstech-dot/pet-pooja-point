@@ -78,4 +78,33 @@
   .tag-offer {
     @apply bg-offer text-white font-medium;
   }
+
+  .page-title {
+    @apply text-2xl md:text-3xl font-medium font-poppins text-foreground tracking-tight;
+  }
+
+  .panel {
+    @apply bg-card border border-border rounded-2xl p-5 md:p-6;
+  }
+
+  .price-row {
+    @apply flex items-center justify-between text-sm font-subheader;
+  }
+
+  .price-row-total {
+    @apply flex items-center justify-between text-base font-medium pt-3 border-t border-border font-poppins;
+  }
+
+  .status-badge-delivered {
+    @apply bg-emerald-500/15 text-emerald-700 border-emerald-500/30 font-medium;
+  }
+
+  .status-badge-cancelled {
+    @apply bg-destructive/15 text-destructive border-destructive/30 font-medium;
+  }
+
+  .status-badge-primary {
+    @apply bg-primary/15 text-amber-800 border-primary/30 font-medium;
+  }
 }
+
