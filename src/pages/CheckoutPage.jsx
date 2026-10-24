@@ -37,7 +37,7 @@ export function CheckoutPage() {
 
   const placeOrderMutation = usePlaceOrder()
 
-  const itemTotal = items.reduce((sum, i) => sum + (i.price || 0) * (i.qty || 0), 0)
+  const itemTotal = items.reduce((sum, i) => sum + (i.price || 0) * (i.qty || i.quantity || 1), 0)
   const bill = calculateBill({
     itemTotal,
     coupon: appliedCoupon,

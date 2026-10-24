@@ -11,12 +11,16 @@ export function CartItemRow({ item }) {
 
   if (!item) return null
 
-  const { id, name, price, qty, isVeg } = item
+  const itemId = item.id || item.cartItemId
+  const name = item.name || "Item"
+  const price = typeof item.price === "number" && !isNaN(item.price) ? item.price : 0
+  const qty = typeof (item.qty || item.quantity) === "number" && !isNaN(item.qty || item.quantity) ? (item.qty || item.quantity) : 1
+  const isVeg = item.isVeg ?? true
 
   return (
     <div className="flex items-center justify-between gap-3 py-2.5 border-b border-border/60 last:border-none text-left">
       <div className="flex items-center gap-2.5 min-w-0 flex-1">
-        <DietaryBadge isVeg={isVeg ?? true} size="sm" />
+        <DietaryBadge isVeg={isVeg} size="sm" />
         <div className="min-w-0">
           <p className="text-xs sm:text-sm font-medium font-poppins text-foreground truncate">
             {name}
@@ -30,8 +34,8 @@ export function CartItemRow({ item }) {
       <div className="flex items-center gap-3 shrink-0">
         <QuantityStepper
           quantity={qty}
-          onIncrease={() => increaseQty(id)}
-          onDecrease={() => decreaseQty(id)}
+          onIncrease={() => increaseQty(itemId)}
+          onDecrease={() => decreaseQty(itemId)}
           size="sm"
         />
         <span className="text-xs sm:text-sm font-medium font-poppins text-foreground min-w-[50px] text-right">

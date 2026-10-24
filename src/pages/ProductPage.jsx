@@ -151,7 +151,7 @@ export function ProductPage() {
                 <button
                   type="button"
                   onClick={() => openCustomise(product)}
-                  className="w-full bg-[#0FA958] hover:bg-[#0c904a] active:scale-[0.99] text-white font-bold font-subheader text-base py-4 px-6 rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full bg-[#0FA958] hover:bg-[#0c904a] active:scale-[0.99] text-white font-medium font-subheader text-base py-4 px-6 rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Plus className="w-5 h-5 stroke-[2.5]" />
                   <span>Customise as per your taste</span>

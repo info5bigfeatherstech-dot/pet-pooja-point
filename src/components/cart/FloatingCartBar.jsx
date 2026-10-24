@@ -8,8 +8,14 @@ export function FloatingCartBar() {
   const isCartOpen = useCartStore((state) => state.isCartOpen)
   const openCart = useCartStore((state) => state.openCart)
 
-  const totalCount = items.reduce((total, item) => total + item.quantity, 0)
-  const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0)
+  const totalCount = items.reduce(
+    (total, item) => total + (item.qty || item.quantity || 1),
+    0
+  )
+  const totalPrice = items.reduce(
+    (total, item) => total + (item.price || 0) * (item.qty || item.quantity || 1),
+    0
+  )
 
   if (totalCount === 0 || isCartOpen) return null
 
@@ -24,16 +30,16 @@ export function FloatingCartBar() {
             <ShoppingBag className="w-4 h-4 text-white" />
           </div>
           <div>
-            <span className="text-xs uppercase tracking-wider font-semibold opacity-90 block leading-none">
+            <span className="text-xs uppercase tracking-wider font-medium opacity-90 block leading-none">
               {totalCount} {totalCount === 1 ? "Item" : "Items"} added
             </span>
-            <span className="text-sm sm:text-base font-bold font-poppins">
+            <span className="text-sm sm:text-base font-medium font-poppins">
               ₹{totalPrice.toFixed(2)} plus taxes
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-1.5 font-bold font-subheader text-sm bg-black/15 px-3 py-1.5 rounded-xl">
+        <div className="flex items-center gap-1.5 font-medium font-subheader text-sm bg-black/15 px-3 py-1.5 rounded-xl">
           <span>View Cart</span>
           <ArrowRight className="w-4 h-4" />
         </div>

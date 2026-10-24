@@ -23,7 +23,7 @@ export function CartToaster() {
   return (
     <aside
       aria-label="Cart Notification"
-      className="fixed top-4 right-3 sm:top-6 sm:right-6 z-50 max-w-[380px] w-[calc(100vw-24px)] sm:w-full animate-in slide-in-from-top-4 sm:slide-in-from-right-4 fade-in duration-300"
+      className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-50 max-w-[380px] w-[calc(100vw-24px)] sm:w-full animate-in slide-in-from-bottom-4 sm:slide-in-from-right-4 fade-in duration-300"
     >
       <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200/90 shadow-2xl p-3.5 sm:p-4 relative overflow-hidden">
         
@@ -34,7 +34,7 @@ export function CartToaster() {
 
         {/* Header row: Checkmark badge & close button */}
         <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
-          <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
+          <div className="flex items-center gap-1.5 text-xs font-medium text-emerald-700">
             <span className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
             </span>
@@ -77,7 +77,7 @@ export function CartToaster() {
               </p>
             ) : null}
 
-            <span className="text-xs font-bold font-poppins text-slate-900 block mt-0.5">
+            <span className="text-xs font-medium font-poppins text-slate-900 block mt-0.5">
               ₹{toast.price}
             </span>
           </div>

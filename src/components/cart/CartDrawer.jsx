@@ -1,17 +1,25 @@
-// src/components/cart/CartDrawer.jsx - Slide-over cart drawer with order summary & checkout
+// src/components/cart/CartDrawer.jsx - Slide-over cart drawer with order summary & checkout navigation
 import React from "react"
-import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight } from "lucide-react"
+import { useNavigate } from "react-router-dom"
+import { X, Plus, Minus, ShoppingBag, ArrowRight } from "lucide-react"
 import useCartStore from "@/store/cartStore"
 import DietaryBadge from "../common/DietaryBadge"
 
 export function CartDrawer() {
-  const { items, isCartOpen, closeCart, updateQuantity, removeItem, clearCart } = useCartStore()
+  const navigate = useNavigate()
+  const { items, isCartOpen, closeCart, increaseQty, decreaseQty, clearCart } = useCartStore()
 
   if (!isCartOpen) return null
 
-  const totalCount = items.reduce((total, item) => total + item.quantity, 0)
-  const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0)
-  const deliveryFee = totalCount > 0 ? 35 : 0
+  const totalCount = items.reduce(
+    (total, item) => total + (item.qty || item.quantity || 1),
+    0
+  )
+  const totalPrice = items.reduce(
+    (total, item) => total + (item.price || 0) * (item.qty || item.quantity || 1),
+    0
+  )
+  const deliveryFee = totalCount > 0 ? (totalPrice >= 399 ? 0 : 40) : 0
   const grandTotal = totalPrice + deliveryFee
 
   return (
@@ -30,7 +38,7 @@ export function CartDrawer() {
               <ShoppingBag className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-lg font-bold font-poppins text-slate-900 leading-tight">
+              <h2 className="text-lg font-medium font-poppins text-slate-900 leading-tight">
                 Your Food Cart
               </h2>
               <p className="text-xs text-slate-500 font-subheader">
@@ -60,51 +68,60 @@ export function CartDrawer() {
               </p>
             </div>
           ) : (
-            items.map((item) => (
-              <div
-                key={item.cartItemId}
-                className="p-3.5 bg-slate-50/70 border border-slate-200/80 rounded-2xl flex gap-3 items-start justify-between shadow-2xs hover:border-slate-300 transition-colors"
-              >
-                {/* Left: Info */}
-                <div className="flex gap-2.5 min-w-0 flex-1">
-                  <DietaryBadge isVeg={item.isVeg ?? true} size="sm" className="mt-0.5" />
-                  <div className="min-w-0 flex-1">
-                    <h4 className="text-sm font-semibold font-poppins text-slate-900 truncate">
-                      {item.name}
-                    </h4>
-                    {item.summaryText && (
-                      <p className="text-[11px] text-slate-500 font-subheader line-clamp-2 mt-0.5 leading-tight">
-                        {item.summaryText}
-                      </p>
-                    )}
-                    <span className="text-xs font-bold text-slate-900 mt-1 block">
-                      ₹{item.price * item.quantity}
+            items.map((item) => {
+              const itemQty = item.qty || item.quantity || 1
+              const itemPrice = item.price || 0
+              const itemTotal = itemPrice * itemQty
+              const itemId = item.id || item.cartItemId
+
+              return (
+                <div
+                  key={itemId}
+                  className="p-3.5 bg-slate-50/70 border border-slate-200/80 rounded-2xl flex gap-3 items-start justify-between shadow-2xs hover:border-slate-300 transition-colors"
+                >
+                  {/* Left: Info */}
+                  <div className="flex gap-2.5 min-w-0 flex-1">
+                    <DietaryBadge isVeg={item.isVeg ?? true} size="sm" className="mt-0.5" />
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-sm font-medium font-poppins text-slate-900 truncate">
+                        {item.name}
+                      </h4>
+                      {item.summaryText && (
+                        <p className="text-[11px] text-slate-500 font-subheader line-clamp-2 mt-0.5 leading-tight">
+                          {item.summaryText}
+                        </p>
+                      )}
+                      <span className="text-xs font-medium text-slate-900 mt-1 block">
+                        ₹{itemTotal}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Right: Quantity controls */}
+                  <div className="flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-2 py-1 shrink-0 shadow-2xs">
+                    <button
+                      type="button"
+                      onClick={() => decreaseQty(itemId)}
+                      aria-label="Decrease quantity"
+                      className="w-5 h-5 flex items-center justify-center text-slate-600 hover:text-red-500 transition-colors cursor-pointer"
+                    >
+                      <Minus className="w-3 h-3" />
+                    </button>
+                    <span className="text-xs font-medium font-mono text-slate-900 min-w-4 text-center">
+                      {itemQty}
                     </span>
+                    <button
+                      type="button"
+                      onClick={() => increaseQty(itemId)}
+                      aria-label="Increase quantity"
+                      className="w-5 h-5 flex items-center justify-center text-slate-600 hover:text-emerald-600 transition-colors cursor-pointer"
+                    >
+                      <Plus className="w-3 h-3" />
+                    </button>
                   </div>
                 </div>
-
-                {/* Right: Quantity controls */}
-                <div className="flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-2 py-1 shrink-0 shadow-2xs">
-                  <button
-                    type="button"
-                    onClick={() => updateQuantity(item.cartItemId, -1)}
-                    className="w-5 h-5 flex items-center justify-center text-slate-600 hover:text-red-500 transition-colors cursor-pointer"
-                  >
-                    <Minus className="w-3 h-3" />
-                  </button>
-                  <span className="text-xs font-bold font-mono text-slate-900 min-w-4 text-center">
-                    {item.quantity}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => updateQuantity(item.cartItemId, 1)}
-                    className="w-5 h-5 flex items-center justify-center text-slate-600 hover:text-emerald-600 transition-colors cursor-pointer"
-                  >
-                    <Plus className="w-3 h-3" />
-                  </button>
-                </div>
-              </div>
-            ))
+              )
+            })
           )}
         </div>
 
@@ -118,9 +135,15 @@ export function CartDrawer() {
               </div>
               <div className="flex justify-between">
                 <span>Delivery Partner Fee</span>
-                <span>₹{deliveryFee.toFixed(2)}</span>
+                <span>
+                  {deliveryFee === 0 ? (
+                    <span className="text-emerald-600 font-medium">FREE</span>
+                  ) : (
+                    `₹${deliveryFee.toFixed(2)}`
+                  )}
+                </span>
               </div>
-              <div className="flex justify-between font-bold text-slate-900 text-sm pt-2 border-t border-slate-100">
+              <div className="flex justify-between font-medium text-slate-900 text-sm pt-2 border-t border-slate-100">
                 <span>Grand Total</span>
                 <span>₹{grandTotal.toFixed(2)}</span>
               </div>
@@ -129,13 +152,12 @@ export function CartDrawer() {
             <button
               type="button"
               onClick={() => {
-                alert("Order placed successfully! Thank you for dining with Tablefy.")
-                clearCart()
                 closeCart()
+                navigate("/checkout")
               }}
-              className="w-full bg-[#0FA958] hover:bg-[#0c904a] text-white font-semibold font-subheader py-3.5 px-5 rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center justify-between cursor-pointer"
+              className="w-full bg-[#0FA958] hover:bg-[#0c904a] text-white font-medium font-subheader py-3.5 px-5 rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center justify-between cursor-pointer"
             >
-              <span>Place Order (₹{grandTotal.toFixed(2)})</span>
+              <span>Proceed to Checkout (₹{grandTotal.toFixed(2)})</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
