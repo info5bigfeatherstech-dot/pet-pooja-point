@@ -90,7 +90,7 @@ export function CategoryPage() {
                 {currentCategory.name} Delights
               </h1>
 
-              <p className="text-xs sm:text-sm text-slate-300 font-subheader leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 font-subheader leading-relaxed capitalize">
                 Handcrafted gourmet recipes prepared fresh to order. Customize your patty, choice of bread, ice level & toppings exactly as you like!
               </p>
             </div>
