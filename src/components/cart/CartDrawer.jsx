@@ -41,7 +41,7 @@ export function CartDrawer() {
               <h2 className="text-lg font-medium font-poppins text-slate-900 leading-tight">
                 Your Food Cart
               </h2>
-              <p className="text-xs text-slate-500 font-subheader">
+              <p className="text-xs text-slate-500 font-subheader capitalize">
                 {totalCount} {totalCount === 1 ? "item" : "items"} added
               </p>
             </div>

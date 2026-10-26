@@ -294,7 +294,7 @@ export function RestaurantPage() {
                       </div>
                       <div className="border-t border-slate-200 pt-4 text-sm text-slate-600 sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0">
                         <p className="font-medium text-slate-900">Customer rating</p>
-                        <p className="mt-1">
+                        <p className="mt-1 capitalize">
                           Ratings reflect diners&apos; overall experience at this restaurant.
                         </p>
                         <p className="mt-2">

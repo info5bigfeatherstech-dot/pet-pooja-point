@@ -59,8 +59,8 @@ export function Footer() {
         <Separator className="bg-gray-300 my-8" />
 
         {/* Copyright and Legal Notice */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-subheader text-slate-500">
-          <p>© {new Date().getFullYear()} Pet Pooja Point. All rights reserved.</p>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-subheader text-slate-500 ">
+          <p>© {new Date().getFullYear()} Pet Pooja Point. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-slate-900 transition-colors">Privacy</a>
             <a href="#" className="hover:text-slate-900 transition-colors">Terms</a>
