@@ -303,7 +303,7 @@ function TableverseFeaturePage({ page }) {
           <p className={`text-xs font-semibold uppercase tracking-widest ${theme.accent}`}>
             Get started
           </p>
-          <h2 className="mt-1 text-xl font-medium font-poppins text-slate-900">
+          <h2 className="mt-1 text-xl font-medium font-poppins text-slate-900 capitalize sm:text-2xl">
             A few useful next steps.
           </h2>
         </div>
@@ -311,7 +311,7 @@ function TableverseFeaturePage({ page }) {
           {page.steps.map(([title, description], index) => (
             <article
               key={title}
-              className="rounded-2xl border border-slate-200 bg-white p-5"
+              className="rounded-2xl border border-slate-200 bg-white p-5 capitalize transition-colors hover:border-slate-300"
             >
               <span className={`font-mono text-xs font-semibold ${theme.accent}`}>
                 STEP 0{index + 1}
