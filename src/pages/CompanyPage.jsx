@@ -677,7 +677,7 @@ function ContactUsPage() {
           <h2 className="mt-4 font-medium font-poppins text-slate-900">
             Need help with an order?
           </h2>
-          <p className="mt-2 text-sm leading-6 text-slate-600">
+          <p className="mt-2 text-sm leading-6 text-slate-600 capitalize">
             Your order details include status, items, delivery address, and bill.
           </p>
           <Link
@@ -693,7 +693,7 @@ function ContactUsPage() {
           <h2 className="mt-3 font-medium font-poppins text-slate-900">
             Looking to partner?
           </h2>
-          <p className="mt-1 text-sm leading-6 text-slate-600">
+          <p className="mt-1 text-sm leading-6 text-slate-600 capitalize">
             Explore franchise, warehouse, delivery, and brand opportunities.
           </p>
           <Link
