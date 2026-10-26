@@ -17,6 +17,7 @@ export async function getRestaurants(params = {}) {
     city = "Delhi NCR",
     activeEntry = "delivery",
     search = "",
+    locality = "",
     rating4Plus = false,
     pureVeg = false,
     openNow = false,
@@ -40,6 +41,13 @@ export async function getRestaurants(params = {}) {
       const matchCuisine = r.cuisines.some((c) => c.toLowerCase().includes(q))
       return matchName || matchLocality || matchCuisine
     })
+  }
+
+  if (locality && locality.trim() !== "") {
+    const targetLocality = locality.trim().toLowerCase()
+    results = results.filter((restaurant) =>
+      restaurant.locality.toLowerCase() === targetLocality
+    )
   }
 
   // Filter: rating >= 4.0

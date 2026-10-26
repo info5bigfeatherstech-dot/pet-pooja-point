@@ -16,6 +16,7 @@ import InformationPage from "./pages/InformationPage"
 import PartnershipPage from "./pages/PartnershipPage"
 import CompanyPage from "./pages/CompanyPage"
 import TableversePage from "./pages/TableversePage"
+import PlaceBrowsePage from "./pages/PlaceBrowsePage"
 import AuthModal from "./components/auth/AuthModal"
 import CustomiseItemModal from "./components/food/CustomiseItemModal"
 import CartDrawer from "./components/cart/CartDrawer"
@@ -52,6 +53,8 @@ export function App() {
         <Route path="/category/:categoryId" element={<CategoryPage />} />
         <Route path="/product/:productId" element={<ProductPage />} />
         <Route path="/restaurant/:restaurantId" element={<RestaurantPage />} />
+        <Route path="/localities/:localitySlug" element={<PlaceBrowsePage />} />
+        <Route path="/cuisines/:cuisineSlug" element={<PlaceBrowsePage />} />
         <Route path="/privacy-policy" element={<InformationPage />} />
         <Route path="/security-trust" element={<InformationPage />} />
         <Route path="/terms-of-service" element={<InformationPage />} />

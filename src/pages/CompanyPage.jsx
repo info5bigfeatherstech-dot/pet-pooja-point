@@ -176,7 +176,7 @@ function CompanyHeader({ page }) {
           <h1 className="mt-1 text-2xl font-medium font-poppins tracking-tight text-slate-900 sm:text-4xl">
             {page.title}
           </h1>
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-sm capitalize">
             {page.description}
           </p>
         </div>
@@ -606,7 +606,7 @@ function ContactUsPage() {
           <h2 className="text-lg font-medium font-poppins text-slate-900">
             Send us a message
           </h2>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-slate-500 capitalize">
             Choose a topic and tell us how we can help.
           </p>
         </div>

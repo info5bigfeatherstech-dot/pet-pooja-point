@@ -1,5 +1,6 @@
 // src/pages/HomePage.jsx - Main restaurant discovery home page with FoodCategoriesSection below hero
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import PageLayout from "@/components/layout/PageLayout"
 import HeroSection from "@/components/sections/HeroSection"
 import FoodCategoriesSection from "@/components/sections/FoodCategoriesSection"
@@ -10,36 +11,20 @@ import LinkPillsSection from "@/components/sections/LinkPillsSection"
 import useLocalities from "@/hooks/useLocalities"
 import useCuisines from "@/hooks/useCuisines"
 import useLocationStore from "@/store/locationStore"
-import useFilterStore from "@/store/filterStore"
 
 export function HomePage() {
+  const navigate = useNavigate()
   const city = useLocationStore((state) => state.city)
-  const currentCuisine = useFilterStore((state) => state.cuisine)
-  const setCuisine = useFilterStore((state) => state.setCuisine)
-  const setSearch = useFilterStore((state) => state.setSearch)
 
   const { data: localities } = useLocalities()
   const { data: cuisines } = useCuisines()
 
   const handleCuisineClick = (item) => {
-    if (currentCuisine && currentCuisine.toLowerCase() === item.name.toLowerCase()) {
-      setCuisine("")
-    } else {
-      setCuisine(item.name)
-    }
-
-    const el = document.getElementById("restaurants-grid")
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" })
-    }
+    navigate(`/cuisines/${item.name.toLowerCase().replace(/\s+/g, "-")}`)
   }
 
   const handleLocalityClick = (item) => {
-    setSearch(item.name)
-    const el = document.getElementById("restaurants-grid")
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" })
-    }
+    navigate(`/localities/${item.name.toLowerCase().replace(/\s+/g, "-")}`)
   }
 
   return (
@@ -74,7 +59,6 @@ export function HomePage() {
           title="Popular cuisines"
           subtitle="Explore dishes and menus across trending domestic and international cuisines"
           items={cuisines || []}
-          activeItem={currentCuisine}
           onItemClick={handleCuisineClick}
         />
     </PageLayout>
