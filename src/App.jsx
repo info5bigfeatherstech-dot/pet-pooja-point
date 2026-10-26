@@ -15,6 +15,7 @@ import OrderDetailsPage from "./pages/OrderDetailsPage"
 import InformationPage from "./pages/InformationPage"
 import PartnershipPage from "./pages/PartnershipPage"
 import CompanyPage from "./pages/CompanyPage"
+import TableversePage from "./pages/TableversePage"
 import AuthModal from "./components/auth/AuthModal"
 import CustomiseItemModal from "./components/food/CustomiseItemModal"
 import CartDrawer from "./components/cart/CartDrawer"
@@ -60,6 +61,7 @@ export function App() {
         <Route path="/partner-with-us" element={<PartnershipPage />} />
         <Route path="/partners/:partnerType" element={<PartnershipPage />} />
         <Route path="/about/:pageKey" element={<CompanyPage />} />
+        <Route path="/tableverse/:pageKey" element={<TableversePage />} />
 
         {/* Wildcard redirect to home */}
         <Route path="*" element={<Navigate to="/" replace />} />

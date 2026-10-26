@@ -15,11 +15,11 @@ export const footerColumns = [
   {
     title: "Tableverse",
     links: [
-      { label: "Pet Pooja Point Pro", href: "#" },
-      { label: "Pet Pooja Point Dine-in Pass", href: "#" },
-      { label: "Pet Pooja Point Kitchens", href: "#" },
-      { label: "Hygiene Ratings", href: "#" },
-      { label: "Culinary Events", href: "#" },
+      { label: "Pet Pooja Point Pro", href: "/tableverse/pet-pooja-point-pro" },
+      { label: "Pet Pooja Point Dine-in Pass", href: "/tableverse/dine-in-pass" },
+      { label: "Pet Pooja Point Kitchens", href: "/tableverse/kitchens" },
+      { label: "Hygiene Ratings", href: "/tableverse/hygiene-ratings" },
+      { label: "Culinary Events", href: "/tableverse/culinary-events" },
     ],
   },
   {
