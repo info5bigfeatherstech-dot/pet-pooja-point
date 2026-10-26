@@ -3,13 +3,13 @@ export const footerColumns = [
   {
     title: "About Pet Pooja Point",
     links: [
-      { label: "Who We Are", href: "#" },
-      { label: "Blog & Stories", href: "#" },
-      { label: "Work With Us", href: "#" },
-      { label: "Investor Relations", href: "#" },
-      { label: "Report Fraud", href: "#" },
-      { label: "Press Kit", href: "#" },
-      { label: "Contact Us", href: "#" },
+      { label: "Who We Are", href: "/about/who-we-are" },
+      { label: "Blog & Stories", href: "/about/blog-stories" },
+      { label: "Work With Us", href: "/about/work-with-us" },
+      { label: "Investor Relations", href: "/about/investor-relations" },
+      { label: "Report Fraud", href: "/about/report-fraud" },
+      { label: "Press Kit", href: "/about/press-kit" },
+      { label: "Contact Us", href: "/about/contact-us" },
     ],
   },
   {
