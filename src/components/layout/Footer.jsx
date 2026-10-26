@@ -42,12 +42,21 @@ export function Footer() {
               <ul className="space-y-2 text-xs font-subheader">
                 {col.links.map((link, linkIdx) => (
                   <li key={linkIdx}>
-                    <a
-                      href={link.href}
-                      className="text-slate-600 hover:text-primary transition-colors duration-150 inline-block py-0.5"
-                    >
-                      {link.label}
-                    </a>
+                    {link.href.startsWith("/") ? (
+                      <Link
+                        to={link.href}
+                        className="text-slate-600 hover:text-primary transition-colors duration-150 inline-block py-0.5"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-slate-600 hover:text-primary transition-colors duration-150 inline-block py-0.5"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -62,10 +71,10 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-subheader text-slate-500 ">
           <p>© {new Date().getFullYear()} Pet Pooja Point. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-slate-900 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-slate-900 transition-colors">Terms</a>
-            <a href="#" className="hover:text-slate-900 transition-colors">Security</a>
-            <a href="#" className="hover:text-slate-900 transition-colors">Cookies</a>
+            <Link to="/privacy-policy" className="hover:text-slate-900 transition-colors">Privacy</Link>
+            <Link to="/terms-of-service" className="hover:text-slate-900 transition-colors">Terms</Link>
+            <Link to="/security-trust" className="hover:text-slate-900 transition-colors">Security</Link>
+            <Link to="/cookie-settings" className="hover:text-slate-900 transition-colors">Cookies</Link>
           </div>
         </div>
       </Container>

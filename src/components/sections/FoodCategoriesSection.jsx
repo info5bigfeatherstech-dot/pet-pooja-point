@@ -28,7 +28,7 @@ export function FoodCategoriesSection() {
   const row2 = foodCategories.slice(8, 16)
 
   return (
-    <section className="py-8 md:py-12 bg-white">
+    <section id="food-categories" className="py-8 md:py-12 bg-white scroll-mt-20">
       <Container>
         {/* Header with Title and Prev/Next Arrows */}
         <div className="flex items-center justify-between gap-4 mb-6 md:mb-8">

@@ -12,6 +12,8 @@ import AddressesTab from "./pages/AddressesTab"
 import CheckoutPage from "./pages/CheckoutPage"
 import OrderSuccessPage from "./pages/OrderSuccessPage"
 import OrderDetailsPage from "./pages/OrderDetailsPage"
+import InformationPage from "./pages/InformationPage"
+import PartnershipPage from "./pages/PartnershipPage"
 import AuthModal from "./components/auth/AuthModal"
 import CustomiseItemModal from "./components/food/CustomiseItemModal"
 import CartDrawer from "./components/cart/CartDrawer"
@@ -48,6 +50,14 @@ export function App() {
         <Route path="/category/:categoryId" element={<CategoryPage />} />
         <Route path="/product/:productId" element={<ProductPage />} />
         <Route path="/restaurant/:restaurantId" element={<RestaurantPage />} />
+        <Route path="/privacy-policy" element={<InformationPage />} />
+        <Route path="/security-trust" element={<InformationPage />} />
+        <Route path="/terms-of-service" element={<InformationPage />} />
+        <Route path="/cookie-settings" element={<InformationPage />} />
+        <Route path="/sitemap" element={<InformationPage />} />
+        <Route path="/help-faq" element={<InformationPage />} />
+        <Route path="/partner-with-us" element={<PartnershipPage />} />
+        <Route path="/partners/:partnerType" element={<PartnershipPage />} />
 
         {/* Wildcard redirect to home */}
         <Route path="*" element={<Navigate to="/" replace />} />
