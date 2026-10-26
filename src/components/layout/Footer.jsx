@@ -16,12 +16,12 @@ export function Footer() {
             <Link
               to="/"
               aria-label="Pet Pooja Point home"
-              className="inline-flex rounded-2xl bg-white p-1 shadow-sm transition-opacity hover:opacity-90"
+              className="inline-flex transition-opacity hover:opacity-90"
             >
               <img
                 src={logo}
                 alt="Pet Pooja Point"
-                className="h-24 w-24 rounded-xl object-contain"
+                className="h-24 w-24 object-contain"
               />
             </Link>
             <p className="text-xs font-subheader text-slate-600 mt-1 max-w-sm capitalize">

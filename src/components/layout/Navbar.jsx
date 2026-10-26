@@ -54,7 +54,7 @@ export function Navbar() {
               <img
                 src={logo}
                 alt="Pet Pooja Point"
-                className="h-16 w-16 object-contain sm:h-[4.5rem] sm:w-[4.5rem]"
+                className="h-[4.5rem] w-[4.5rem] object-contain sm:h-20 sm:w-20"
               />
             </Link>
 
