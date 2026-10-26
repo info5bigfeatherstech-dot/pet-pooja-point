@@ -64,10 +64,10 @@ export function Navbar() {
           </div>
 
           {/* Center: Search Bar (Desktop / Tablet) */}
-          <div className="hidden md:flex flex-1 max-w-xl mx-2 lg:mx-4">
+          <div className="hidden md:flex flex-1 max-w-xl mx-2 lg:mx-4 ">
             <SearchInput
               placeholder="Search for restaurant, cuisine or a dish..."
-              inputClassName="bg-white border-white text-slate-900 placeholder:text-slate-400 focus-visible:ring-slate-900 shadow-xs font-subheader h-10 text-sm"
+              inputClassName="bg-white border-white text-slate-900 placeholder:text-slate-400 focus-visible:ring-slate-900 shadow-xs font-subheader h-10 text-sm capitalize"
             />
           </div>
 

@@ -57,7 +57,7 @@ export function AddressesTab() {
           <h2 className="text-xl sm:text-2xl font-medium font-poppins text-foreground tracking-tight">
             Saved Addresses
           </h2>
-          <p className="text-xs text-muted-foreground font-subheader mt-0.5">
+          <p className="text-xs text-muted-foreground font-subheader mt-0.5 capitalize">
             Manage your delivery locations for faster and easier ordering.
           </p>
         </div>
