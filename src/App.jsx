@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import CategoryPage from "./pages/CategoryPage"
 import ProductPage from "./pages/ProductPage"
+import RestaurantPage from "./pages/RestaurantPage"
 import ProfilePage from "./pages/ProfilePage"
 import ProfileDetailsTab from "./pages/ProfileDetailsTab"
 import OrdersTab from "./pages/OrdersTab"
@@ -44,6 +45,7 @@ export function App() {
         {/* Category & Product details */}
         <Route path="/category/:categoryId" element={<CategoryPage />} />
         <Route path="/product/:productId" element={<ProductPage />} />
+        <Route path="/restaurant/:restaurantId" element={<RestaurantPage />} />
 
         {/* Wildcard redirect to home */}
         <Route path="*" element={<Navigate to="/" replace />} />

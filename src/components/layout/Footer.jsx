@@ -1,5 +1,7 @@
 // src/components/layout/Footer.jsx - Footer with gray-200 background, centered Container matching upper sections
 import React from "react"
+import { Link } from "react-router-dom"
+import logo from "@/assets/Pet Pooja Point.png"
 import Container from "./Container"
 import { Separator } from "@/components/ui/separator"
 import { footerColumns } from "@/data/footerLinks"
@@ -11,15 +13,19 @@ export function Footer() {
         {/* Top Header Row with Logo & Short Bio */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
           <div>
-            <a
-              href="/"
-              className="text-2xl font-medium font-poppins tracking-tight text-slate-900 flex items-center select-none"
+            <Link
+              to="/"
+              aria-label="Pet Pooja Point home"
+              className="inline-flex rounded-2xl bg-white p-1 shadow-sm transition-opacity hover:opacity-90"
             >
-              <span>Tablefy</span>
-              <span className="text-primary text-3xl leading-none">.</span>
-            </a>
+              <img
+                src={logo}
+                alt="Pet Pooja Point"
+                className="h-24 w-24 rounded-xl object-contain"
+              />
+            </Link>
             <p className="text-xs font-subheader text-slate-600 mt-1 max-w-sm capitalize">
-              Discover authentic culinary gems, reserve favourite tables, and satisfy your cravings in your city.
+              Discover great food and local restaurants for every craving.
             </p>
           </div>
 
@@ -58,7 +64,7 @@ export function Footer() {
 
         {/* Copyright and Legal Notice */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-subheader text-slate-500">
-          <p>© {new Date().getFullYear()} Tablefy Technologies Pvt. Ltd. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Pet Pooja Point. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-slate-900 transition-colors">Privacy</a>
             <a href="#" className="hover:text-slate-900 transition-colors">Terms</a>

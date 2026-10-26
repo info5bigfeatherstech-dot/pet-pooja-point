@@ -6,22 +6,35 @@ import useFilterStore from "@/store/filterStore"
 import { cn } from "@/lib/utils"
 
 export function EntryCard({ item }) {
-  if (!item) return null
-
   const activeEntry = useFilterStore((state) => state.activeEntry)
   const setActiveEntry = useFilterStore((state) => state.setActiveEntry)
+
+  if (!item) return null
 
   const isActive = activeEntry === item.id
 
   const handleClick = () => {
     setActiveEntry(item.id)
+    document.getElementById("restaurants-grid")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    })
   }
 
   return (
     <Card
       onClick={handleClick}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault()
+          handleClick()
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-pressed={isActive}
       className={cn(
-        "app-card group cursor-pointer flex flex-col overflow-hidden transition-all duration-200 border-2 select-none bg-white",
+        "app-card group cursor-pointer flex flex-col overflow-hidden transition-all duration-200 border-2 select-none bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
         isActive
           ? "border-primary bg-white ring-2 ring-primary/20 shadow-md"
           : "border-border hover:border-primary hover:shadow-md"

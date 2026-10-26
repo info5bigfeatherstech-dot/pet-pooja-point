@@ -105,6 +105,10 @@ export async function getRestaurants(params = {}) {
   }
 }
 
+export function getRestaurantById(id) {
+  return mockRestaurants.find((restaurant) => restaurant.id === id)
+}
+
 /**
  * Fetches curated collections
  */

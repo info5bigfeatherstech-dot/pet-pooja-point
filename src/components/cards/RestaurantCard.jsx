@@ -1,5 +1,6 @@
 // src/components/cards/RestaurantCard.jsx - Card displaying restaurant details, rating, offers, & pricing with Poppins header and Montreal subheader
 import React from "react"
+import { Link } from "react-router-dom"
 import { Star, Clock } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -24,7 +25,12 @@ export function RestaurantCard({ restaurant }) {
   } = restaurant
 
   return (
-    <Card className="app-card group cursor-pointer flex flex-col h-full select-none bg-white border-border hover:border-primary hover:shadow-lg">
+    <Link
+      to={`/restaurant/${restaurant.id}`}
+      aria-label={`View ${name}`}
+      className="block h-full rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+    >
+      <Card className="app-card group flex flex-col h-full select-none bg-white border-border hover:border-primary hover:shadow-lg">
       {/* Thumbnail Area */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
         <img
@@ -111,7 +117,8 @@ export function RestaurantCard({ restaurant }) {
           )}
         </div>
       </CardContent>
-    </Card>
+      </Card>
+    </Link>
   )
 }
 

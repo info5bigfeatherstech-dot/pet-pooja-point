@@ -47,7 +47,7 @@ export function OrdersTab() {
           <h2 className="text-xl sm:text-2xl font-medium font-poppins text-foreground tracking-tight">
             Your Orders
           </h2>
-          <p className="text-xs text-muted-foreground font-subheader mt-0.5">
+          <p className="text-xs text-muted-foreground font-subheader mt-0.5 capitalize">
             Track live deliveries, view past receipts, or reorder favorite meals.
           </p>
         </div>

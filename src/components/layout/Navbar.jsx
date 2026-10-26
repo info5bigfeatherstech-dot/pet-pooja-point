@@ -1,6 +1,7 @@
 // src/components/layout/Navbar.jsx - Main navigation bar with Cart button and user avatar dropdown menu
 import React, { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import logo from "@/assets/Pet Pooja Point.png"
 import { Search, X, ShoppingBag, User, MapPin, LogOut, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -47,10 +48,14 @@ export function Navbar() {
           <div className="flex items-center gap-3 lg:gap-4 shrink-0">
             <Link
               to="/"
-              className="text-2xl font-medium font-poppins tracking-tight text-white hover:opacity-95 transition-opacity flex items-center select-none drop-shadow-xs"
+              aria-label="Pet Pooja Point home"
+              className="flex shrink-0 items-center transition-opacity hover:opacity-95"
             >
-              <span>Tablefy</span>
-              <span className="text-slate-950 text-3xl leading-none">.</span>
+              <img
+                src={logo}
+                alt="Pet Pooja Point"
+                className="h-16 w-16 object-contain sm:h-[4.5rem] sm:w-[4.5rem]"
+              />
             </Link>
 
             <div className="hidden sm:block">
