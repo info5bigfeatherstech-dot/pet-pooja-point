@@ -1,10 +1,9 @@
 // src/components/orders/OrderCard.jsx - Card showing summary of a placed order with Reorder and Details actions
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { RotateCcw, Eye, ArrowRight } from "lucide-react"
+import { RotateCcw, Eye } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import StatusBadge from "@/components/common/StatusBadge"
-import OrderDetailsSheet from "./OrderDetailsSheet"
 import ConfirmDialog from "@/components/common/ConfirmDialog"
 import { formatDate, formatCurrency } from "@/utils/formatters"
 import useCartStore from "@/store/cartStore"
@@ -12,7 +11,6 @@ import useCartStore from "@/store/cartStore"
 export function OrderCard({ order }) {
   const navigate = useNavigate()
   const { items: cartItems, addItem, clearCart } = useCartStore()
-  const [detailsOpen, setDetailsOpen] = useState(false)
   const [reorderConfirmOpen, setReorderConfirmOpen] = useState(false)
 
   if (!order) return null
@@ -88,7 +86,7 @@ export function OrderCard({ order }) {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => setDetailsOpen(true)}
+            onClick={() => navigate(`/profile/orders/${order.id}`)}
             className="rounded-xl font-medium text-xs h-8 px-3"
           >
             <Eye className="w-3.5 h-3.5 mr-1" />
@@ -105,13 +103,6 @@ export function OrderCard({ order }) {
           </Button>
         </div>
       </div>
-
-      {/* Slide-over details sheet */}
-      <OrderDetailsSheet
-        order={order}
-        open={detailsOpen}
-        onOpenChange={setDetailsOpen}
-      />
 
       {/* Confirm replace cart dialog */}
       <ConfirmDialog

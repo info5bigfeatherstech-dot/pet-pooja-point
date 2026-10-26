@@ -2,7 +2,7 @@
 // Order confirmation page displaying delivery estimate and order details summary.
 
 import React from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { CheckCircle2, Clock, MapPin, Store, ArrowRight, Home } from 'lucide-react';
 import PageLayout from '../components/layout/PageLayout';
 import { useOrder } from '../hooks/useOrder';
@@ -13,7 +13,6 @@ import { formatCurrency } from '../utils/formatters';
 
 export default function OrderSuccessPage() {
   const { orderId } = useParams();
-  const navigate = useNavigate();
   const { data: order, isLoading, isError, refetch } = useOrder(orderId);
 
   if (isLoading) {
@@ -124,7 +123,7 @@ export default function OrderSuccessPage() {
             asChild
             className="w-full sm:w-auto font-medium shadow-sm hover:shadow"
           >
-            <Link to={`/profile/orders?orderId=${order.id}`}>
+            <Link to={`/profile/orders/${order.id}`}>
               Track / View order
               <ArrowRight className="w-4 h-4 ml-1.5" />
             </Link>

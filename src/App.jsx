@@ -11,6 +11,7 @@ import OrdersTab from "./pages/OrdersTab"
 import AddressesTab from "./pages/AddressesTab"
 import CheckoutPage from "./pages/CheckoutPage"
 import OrderSuccessPage from "./pages/OrderSuccessPage"
+import OrderDetailsPage from "./pages/OrderDetailsPage"
 import AuthModal from "./components/auth/AuthModal"
 import CustomiseItemModal from "./components/food/CustomiseItemModal"
 import CartDrawer from "./components/cart/CartDrawer"
@@ -33,6 +34,7 @@ export function App() {
           <Route index element={<Navigate to="/profile/orders" replace />} />
           <Route path="details" element={<ProfileDetailsTab />} />
           <Route path="orders" element={<OrdersTab />} />
+          <Route path="orders/:orderId" element={<OrderDetailsPage />} />
           <Route path="addresses" element={<AddressesTab />} />
         </Route>
 

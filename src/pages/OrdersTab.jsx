@@ -1,43 +1,18 @@
-import React, { useState, useEffect } from "react"
-import { useNavigate, useSearchParams } from "react-router-dom"
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { ShoppingBag } from "lucide-react"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import OrderCard from "@/components/orders/OrderCard"
-import OrderDetailsSheet from "@/components/orders/OrderDetailsSheet"
 import EmptyState from "@/components/common/EmptyState"
 import ErrorState from "@/components/common/ErrorState"
 import CardSkeleton from "@/components/common/CardSkeleton"
 import { useOrders } from "@/hooks/useOrders"
-import { useOrder } from "@/hooks/useOrder"
 
 export function OrdersTab() {
   const navigate = useNavigate()
-  const [searchParams, setSearchParams] = useSearchParams()
-  const orderIdParam = searchParams.get("orderId")
   const [statusTab, setStatusTab] = useState("all")
-  const [selectedOrder, setSelectedOrder] = useState(null)
-  const [detailsOpen, setDetailsOpen] = useState(false)
 
   const { data: orders = [], isLoading, isError, refetch } = useOrders(statusTab)
-  const { data: queriedOrder } = useOrder(orderIdParam)
-
-  useEffect(() => {
-    if (orderIdParam) {
-      const match = orders.find((o) => o.id === orderIdParam) || queriedOrder
-      if (match) {
-        setSelectedOrder(match)
-        setDetailsOpen(true)
-      }
-    }
-  }, [orderIdParam, orders, queriedOrder])
-
-  const handleCloseDetails = (open) => {
-    setDetailsOpen(open)
-    if (!open && orderIdParam) {
-      searchParams.delete("orderId")
-      setSearchParams(searchParams, { replace: true })
-    }
-  }
 
   return (
     <div className="space-y-6 text-left">
@@ -98,14 +73,6 @@ export function OrdersTab() {
         </div>
       )}
 
-      {/* Sheet for direct URL link / selection */}
-      {selectedOrder && (
-        <OrderDetailsSheet
-          order={selectedOrder}
-          open={detailsOpen}
-          onOpenChange={handleCloseDetails}
-        />
-      )}
     </div>
   )
 }
