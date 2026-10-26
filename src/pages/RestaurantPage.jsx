@@ -64,7 +64,7 @@ function TabSection({ title, description, children }) {
       <div className="mb-5">
         <h2 className="text-xl font-medium font-poppins text-slate-900">{title}</h2>
         {description && (
-          <p className="mt-1 text-sm text-slate-500 font-subheader">{description}</p>
+          <p className="mt-1 text-sm text-slate-500 font-subheader capitalize">{description}</p>
         )}
       </div>
       {children}

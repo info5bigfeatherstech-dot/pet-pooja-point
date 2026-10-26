@@ -29,11 +29,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4 text-xs font-subheader text-slate-800">
-            <span className="inline-block px-3 py-1 rounded-full border border-gray-300 bg-white/70 font-medium shadow-2xs">
-              🌐 English (India)
-            </span>
-          </div>
+        
         </div>
 
         {/* 4 Navigation Columns from data/footerLinks.js */}
