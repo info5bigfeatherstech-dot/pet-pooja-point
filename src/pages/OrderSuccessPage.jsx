@@ -54,7 +54,7 @@ export default function OrderSuccessPage() {
           Order placed!
         </h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Thank you for ordering with Tablefy. We've notified the restaurant.
+          Thank you for ordering with Pet Pooja Point. We've notified the restaurant.
         </p>
 
         <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/60 border border-border text-xs text-muted-foreground">

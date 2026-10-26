@@ -1,7 +1,7 @@
 // src/data/footerLinks.js - Navigation links structured into 4 footer columns
 export const footerColumns = [
   {
-    title: "About Tablefy",
+    title: "About Pet Pooja Point",
     links: [
       { label: "Who We Are", href: "#" },
       { label: "Blog & Stories", href: "#" },
@@ -15,9 +15,9 @@ export const footerColumns = [
   {
     title: "Tableverse",
     links: [
-      { label: "Tablefy Pro", href: "#" },
-      { label: "Tablefy Dine-in Pass", href: "#" },
-      { label: "Tablefy Kitchens", href: "#" },
+      { label: "Pet Pooja Point Pro", href: "#" },
+      { label: "Pet Pooja Point Dine-in Pass", href: "#" },
+      { label: "Pet Pooja Point Kitchens", href: "#" },
       { label: "Hygiene Ratings", href: "#" },
       { label: "Culinary Events", href: "#" },
     ],

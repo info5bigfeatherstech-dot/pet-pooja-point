@@ -68,7 +68,7 @@ export function MobileMenu({ isOpen, onOpenChange }) {
         <div className="space-y-6">
           <SheetHeader className="text-left space-y-1">
             <SheetTitle className="text-2xl font-medium font-poppins tracking-tight text-[#F3EFE6] flex items-center">
-              Tablefy<span className="text-primary text-3xl leading-none">.</span>
+              Pet Pooja Point<span className="text-primary text-3xl leading-none">.</span>
             </SheetTitle>
             <p className="text-xs text-[#9DB5B8]">
               Discover top restaurants & dining spots

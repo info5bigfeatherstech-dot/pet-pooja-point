@@ -97,7 +97,7 @@ export function AuthModal() {
           <div className="relative z-10">
             <div className="flex items-center gap-2">
               <span className="text-2xl sm:text-3xl font-extrabold font-poppins tracking-tight text-slate-900">
-                Tablefy<span className="text-primary text-3xl leading-none">.</span>
+                Pet Pooja Point<span className="text-primary text-3xl leading-none">.</span>
               </span>
               <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary font-subheader">
                 India
@@ -119,7 +119,7 @@ export function AuthModal() {
           <div className="relative z-10 mt-4 sm:mt-6 rounded-2xl overflow-hidden shadow-sm border border-orange-200/60 bg-white/60">
             <img
               src="/auth-banner.jpg"
-              alt="Tablefy quick food delivery and dining illustration"
+              alt="Pet Pooja Point quick food delivery and dining illustration"
               className="w-full h-44 sm:h-52 md:h-56 object-cover object-center transform hover:scale-102 transition-transform duration-500"
             />
             <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-2.5 text-center">
@@ -243,7 +243,7 @@ export function AuthModal() {
                 Logged in successfully!
               </h3>
               <p className="text-xs text-slate-600 font-medium">
-                Welcome to Tablefy (+91 {phone.slice(0, 5)} {phone.slice(5)})
+                Welcome to Pet Pooja Point (+91 {phone.slice(0, 5)} {phone.slice(5)})
               </p>
             </div>
           )}

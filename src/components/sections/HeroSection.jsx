@@ -20,7 +20,7 @@ export function HeroSection() {
           {/* Background Food & Dining Atmosphere Image */}
           <img
             src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1600&q=80"
-            alt="Tablefy Dining Experience Spread"
+            alt="Pet Pooja Point dining experience spread"
             loading="eager"
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
@@ -39,7 +39,7 @@ export function HeroSection() {
                 45% <span className="text-primary">OFF</span>
               </h1>
               <p className="text-sm sm:text-base font-subheader text-slate-300 font-normal pt-1.5 max-w-lg leading-relaxed capitalize">
-                on handcrafted chef menus, rooftop dinners, and premier dine-in experiences with Tablefy.
+                on handcrafted chef menus, rooftop dinners, and premier dine-in experiences with Pet Pooja Point.
               </p>
             </div>
 

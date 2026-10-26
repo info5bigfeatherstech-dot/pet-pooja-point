@@ -1,4 +1,4 @@
-// src/utils/billCalculator.js - Single source of truth for all bill computations in Tablefy
+// src/utils/billCalculator.js - Single source of truth for all bill computations
 
 export function calculateBill({ itemTotal = 0, coupon = null, tip = 0 }) {
   const safeItemTotal = Math.max(0, Number(itemTotal) || 0)

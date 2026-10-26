@@ -17,13 +17,13 @@ export const useAuthStore = create((set) => ({
       user: { ...dummyUser, phone: phone || dummyUser.phone },
       isAuthModalOpen: false,
     })
-    toast.success("Welcome back to Tablefy!")
+    toast.success("Welcome back to Pet Pooja Point!")
   },
 
   logout: () => {
     set({ isLoggedIn: false, user: null })
     toast("Logged out successfully.", {
-      description: "You have been logged out of Tablefy.",
+      description: "You have been logged out of Pet Pooja Point.",
     })
   },
 }))
