@@ -649,11 +649,11 @@ function HelpFaqPage() {
           {faqItems.map((item) => (
               <details
                 key={item.question}
-                className="group border-b border-slate-100 py-5 last:border-b-0"
+                className="group border-b border-slate-100 py-5 last:border-b-0 capitalize"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-slate-900 marker:hidden">
                   <span>
-                    <span className="mb-1 block text-[10px] font-semibold uppercase tracking-widest text-primary">
+                    <span className="mb-1 block text-[10px] font-semibold uppercase tracking-widest text-primary capitalize">
                       {item.category}
                     </span>
                     {item.question}
