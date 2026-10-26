@@ -70,7 +70,7 @@ export function DeliveryOptions() {
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
             Contactless Delivery
           </Label>
-          <p className="text-[11px] text-muted-foreground font-subheader">
+          <p className="text-[11px] text-muted-foreground font-subheader capitalize">
             Our delivery partner will leave your food at the door and notify you.
           </p>
         </div>

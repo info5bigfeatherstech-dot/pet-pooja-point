@@ -21,7 +21,7 @@ export function AddressSelector({ selectedAddressId, onSelectAddress }) {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <span className="text-xs font-subheader text-muted-foreground">
+        <span className="text-xs font-subheader text-muted-foreground capitalize">
           Select where you want your food delivered:
         </span>
         <Button

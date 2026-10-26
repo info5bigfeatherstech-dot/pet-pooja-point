@@ -31,7 +31,7 @@ export function CheckoutStepCard({
               {title}
             </h3>
             {subtitle && (
-              <p className="text-[11px] text-muted-foreground font-subheader">
+              <p className="text-[11px] text-muted-foreground font-subheader capitalize">
                 {subtitle}
               </p>
             )}
