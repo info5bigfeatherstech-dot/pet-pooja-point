@@ -248,7 +248,7 @@ function TableverseHeader({ page }) {
           <h1 className="mt-1 text-2xl font-medium font-poppins tracking-tight text-slate-900 sm:text-4xl">
             {page.title}
           </h1>
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base capitalize">
             {page.description}
           </p>
         </div>
@@ -268,7 +268,7 @@ function TableverseFeaturePage({ page }) {
         <p className={`text-xs font-semibold uppercase tracking-widest ${theme.accent}`}>
           The idea
         </p>
-        <h2 className="mt-2 text-xl font-medium font-poppins text-slate-900 sm:text-2xl">
+        <h2 className="mt-2 text-xl font-medium font-poppins text-slate-900 sm:text-2xl capitalize">
           {page.introTitle}
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
@@ -283,13 +283,13 @@ function TableverseFeaturePage({ page }) {
                 key={benefit.title}
                 className="rounded-2xl bg-slate-50 p-5"
               >
-                <span className={`flex h-10 w-10 items-center justify-center rounded-xl ${theme.iconSmall}`}>
+                <span className={`flex h-10 w-10 items-center justify-center capitalize rounded-xl ${theme.iconSmall}`}>
                   <Icon className="h-5 w-5" />
                 </span>
-                <h3 className="mt-4 font-medium text-slate-900">
+                <h3 className="mt-4 font-medium text-slate-900 capitalize">
                   {benefit.title}
                 </h3>
-                <p className="mt-1.5 text-sm leading-6 text-slate-600">
+                <p className="mt-1.5 text-sm leading-6 text-slate-600 capitalize">
                   {benefit.text}
                 </p>
               </article>

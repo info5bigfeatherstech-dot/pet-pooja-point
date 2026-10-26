@@ -291,10 +291,10 @@ function PartnershipDetailPage({ opportunity }) {
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
             The opportunity
           </p>
-          <h2 className="mt-2 text-xl font-medium font-poppins text-slate-900">
+          <h2 className="mt-2 text-xl font-medium font-poppins text-slate-900 capitalize">
             A partnership built around your strengths.
           </h2>
-          <p className="mt-3 text-sm leading-7 text-slate-600">
+          <p className="mt-3 text-sm leading-7 text-slate-600 capitalize">
             {opportunity.description}
           </p>
 
@@ -303,7 +303,7 @@ function PartnershipDetailPage({ opportunity }) {
           </h3>
           <ul className="mt-4 space-y-3">
             {opportunity.idealFor.map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-6 text-slate-600">
+              <li key={item} className="flex gap-3 text-sm leading-6 text-slate-600 capitalize">
                 <Check className={`mt-1 h-4 w-4 shrink-0 ${accent.number}`} />
                 {item}
               </li>
@@ -318,7 +318,7 @@ function PartnershipDetailPage({ opportunity }) {
           <h2 className="mt-4 text-lg font-medium font-poppins text-slate-900">
             Start a conversation
           </h2>
-          <p className="mt-2 text-sm leading-6 text-slate-600">
+          <p className="mt-2 text-sm leading-6 text-slate-600 capitalize">
             When you reach out, include your location, relevant experience, and
             a short description of the opportunity you have in mind.
           </p>
@@ -337,13 +337,13 @@ function PartnershipDetailPage({ opportunity }) {
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
             What happens next
           </p>
-          <h2 className="mt-2 text-xl font-medium font-poppins text-slate-900">
+          <h2 className="mt-2 text-xl font-medium font-poppins text-slate-900 capitalize">
             A clear path from introduction to discussion.
           </h2>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {opportunity.details.map((step, index) => (
-            <article key={step.title} className="rounded-xl bg-slate-50 p-4">
+            <article key={step.title} className="rounded-xl bg-slate-50 p-4 capitalize">
               <span className={`font-mono text-xs font-semibold ${accent.number}`}>
                 STEP 0{index + 1}
               </span>
@@ -364,7 +364,7 @@ function PartnershipDetailPage({ opportunity }) {
             <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
               More ways to partner
             </p>
-            <h2 className="mt-1 text-lg font-medium font-poppins text-slate-900">
+            <h2 className="mt-1 text-lg font-medium font-poppins text-slate-900 capitalize">
               Explore other opportunities
             </h2>
           </div>
