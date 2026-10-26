@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react"
+import React, { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import {
   ArrowLeft,
@@ -14,14 +14,12 @@ import {
   Home,
   LockKeyhole,
   Map,
-  Search,
   ShieldCheck,
   ShoppingBag,
   UserRound,
 } from "lucide-react"
 import PageLayout from "@/components/layout/PageLayout"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Switch } from "@/components/ui/switch"
 
 const pageInfo = {
@@ -637,63 +635,18 @@ function SitemapPage() {
 }
 
 function HelpFaqPage() {
-  const [search, setSearch] = useState("")
-  const [activeCategory, setActiveCategory] = useState("All")
-  const categories = ["All", ...new Set(faqItems.map((item) => item.category))]
-  const filteredFaqs = useMemo(() => {
-    const query = search.trim().toLowerCase()
-    return faqItems.filter((item) => {
-      const matchesCategory =
-        activeCategory === "All" || item.category === activeCategory
-      const matchesSearch =
-        !query ||
-        item.question.toLowerCase().includes(query) ||
-        item.answer.toLowerCase().includes(query)
-      return matchesCategory && matchesSearch
-    })
-  }, [activeCategory, search])
-
   return (
     <PageLayout className="py-8 sm:py-12">
       <PageIntro
         eyebrow="HERE WHEN YOU NEED US"
         title="What can we help with?"
-        description="Search for an answer or browse common questions about orders, your account, and payments."
+        description="Browse common questions about orders, your account, and payments."
         icon={CircleHelp}
       />
 
       <div className="mx-auto max-w-4xl">
-        <label className="relative block">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-          <Input
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-            placeholder="Try “order status” or “delivery address”"
-            className="h-14 rounded-2xl border-slate-200 bg-white pl-12 text-sm shadow-sm"
-            aria-label="Search frequently asked questions"
-          />
-        </label>
-
-        <div className="mt-5 flex gap-2 overflow-x-auto pb-2">
-          {categories.map((category) => (
-            <button
-              key={category}
-              type="button"
-              onClick={() => setActiveCategory(category)}
-              className={`shrink-0 rounded-full border px-4 py-2 text-xs font-medium transition-colors ${
-                activeCategory === category
-                  ? "border-slate-900 bg-slate-900 text-white"
-                  : "border-slate-200 bg-white text-slate-600 hover:border-slate-400"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-4 rounded-2xl border border-slate-200 bg-white px-5 sm:px-7">
-          {filteredFaqs.length ? (
-            filteredFaqs.map((item) => (
+        <div className="rounded-2xl border border-slate-200 bg-white px-5 sm:px-7">
+          {faqItems.map((item) => (
               <details
                 key={item.question}
                 className="group border-b border-slate-100 py-5 last:border-b-0"
@@ -711,16 +664,7 @@ function HelpFaqPage() {
                   {item.answer}
                 </p>
               </details>
-            ))
-          ) : (
-            <div className="py-12 text-center">
-              <HelpCircle className="mx-auto h-8 w-8 text-slate-300" />
-              <h2 className="mt-3 font-medium text-slate-900">No answers found</h2>
-              <p className="mt-1 text-sm text-slate-500">
-                Try another search or choose a different topic.
-              </p>
-            </div>
-          )}
+          ))}
         </div>
 
         <section className="mt-6 flex flex-col gap-4 rounded-2xl bg-slate-900 p-5 text-white sm:flex-row sm:items-center sm:justify-between sm:p-6">
