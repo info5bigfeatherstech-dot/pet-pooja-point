@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Container from "@/components/layout/Container"
 import PageLayout from "@/components/layout/PageLayout"
 import SectionHeader from "@/components/common/SectionHeader"
@@ -11,6 +11,7 @@ import useCollections from "@/hooks/useCollections"
 import useLocationStore from "@/store/locationStore"
 
 export function CollectionsPage() {
+  const navigate = useNavigate()
   const city = useLocationStore((state) => state.city)
   const { data: collections, isLoading, isError, error, refetch } = useCollections()
 
@@ -53,7 +54,7 @@ export function CollectionsPage() {
             title="No collections available"
             message={`There are no curated collections to show for ${city} right now.`}
             actionLabel="Back to discover"
-            onAction={() => window.history.back()}
+            onAction={() => navigate("/")}
           />
         )}
       </Container>
