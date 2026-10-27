@@ -98,7 +98,7 @@ export function PlaceBrowsePage() {
                         ? `${selectedItem.name} restaurants in ${city}`
                         : `Restaurants & Cafes in ${selectedItem.name}`}
                     </h1>
-                    <p className="mt-2 text-sm text-slate-600">
+                    <p className="mt-2 text-sm text-slate-600 capitalize">
                       {isCuisinePage
                         ? `Discover ${selectedItem.name} food and restaurants in ${city}.`
                         : `Explore restaurants, cafes, and bars in ${selectedItem.name}, ${city}.`}

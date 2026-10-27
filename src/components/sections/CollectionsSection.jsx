@@ -1,5 +1,6 @@
 // src/components/sections/CollectionsSection.jsx - Carousel displaying curated restaurant collections
 import React from "react"
+import { Link } from "react-router-dom"
 import Container from "../layout/Container"
 import SectionHeader from "../common/SectionHeader"
 import CollectionCard from "../cards/CollectionCard"
@@ -25,7 +26,14 @@ export function CollectionsSection() {
         <SectionHeader
           title="Collections"
           subtitle={`Explore curated lists of top restaurants, cafes, pubs, and bars in ${city}, based on trends`}
-          action={<span>All collections in {city} →</span>}
+          action={
+            <Link
+              to="/collections"
+              className="text-primary hover:text-primary-hover"
+            >
+              All collections in {city} →
+            </Link>
+          }
         />
 
         {isLoading ? (
